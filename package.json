@@ -1,0 +1,27 @@
+{
+  "name": "arcane-relay",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@10.13.1",
+  "scripts": {
+    "dev": "pnpm --filter web dev",
+    "build": "pnpm --filter web build && pnpm --filter functions build",
+    "lint": "pnpm --filter web lint && pnpm --filter functions lint",
+    "test": "pnpm --filter web test",
+    "format": "prettier --write .",
+    "emulate": "firebase emulators:start --config infra/firebase.json --project arcane-relay-dev",
+    "deploy": "firebase deploy --config infra/firebase.json",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "firebase-tools": "^13.30.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.4.2"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,jsx,json,css,md}": "prettier --write",
+    "apps/web/src/**/*.{ts,tsx}": "pnpm --filter web lint",
+    "api/functions/src/**/*.ts": "pnpm --filter functions lint"
+  }
+}

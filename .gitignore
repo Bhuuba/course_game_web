@@ -1,0 +1,10 @@
+node_modules
+apps/web/dist
+apps/web/.env.local
+apps/web/.env
+apps/web/.vite
+api/functions/lib
+api/functions/node_modules
+firebase-debug.log
+.tmp
+.DS_Store

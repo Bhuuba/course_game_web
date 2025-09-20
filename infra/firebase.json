@@ -1,0 +1,28 @@
+{
+  "functions": {
+    "source": "api/functions",
+    "runtime": "nodejs20"
+  },
+  "hosting": {
+    "public": "apps/web/dist",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      { "source": "/api/gm-sse", "function": "gmSse" },
+      { "source": "**", "destination": "/index.html" }
+    ]
+  },
+  "emulators": {
+    "functions": {
+      "port": 5001
+    },
+    "firestore": {
+      "port": 8080
+    },
+    "auth": {
+      "port": 9099
+    },
+    "hosting": {
+      "port": 5173
+    }
+  }
+}
